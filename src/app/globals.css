@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  color: aliceblue;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  color: black;
+  border-radius: 10px;
+}

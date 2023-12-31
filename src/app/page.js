@@ -12,6 +12,7 @@ export default function Home() {
   const [msg, setMsg] = useState('')
   const [inMsg, setInMsg] = useState([])
   const socket = io('https://chat-app-server-dmth.onrender.com', { withCredentials: true });
+  // const socket = io('http://localhost:9000', { withCredentials: true });
 
   useEffect(() => {
     console.log(typeof (inmsg))
@@ -43,7 +44,7 @@ export default function Home() {
       <div className={styles.msg}>
         {
           inMsg.map((value, key) => {
-            return (<p key={key} style={{ color: 'black' }}><FaRegUserCircle />{value}</p>)
+            return (<p key={key} style={{ color: 'black', display: 'flex', gap: '1vw', alignItems: 'center' }}><FaRegUserCircle size={25} />{value}</p>)
           })
         }
         {/* <p>{typeof(inmsg)}</p> */}

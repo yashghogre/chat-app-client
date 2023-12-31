@@ -11,7 +11,7 @@ export default function Home() {
 
   const [msg, setMsg] = useState('')
   const [inMsg, setInMsg] = useState([])
-  const socket = io('http://localhost:9000', { withCredentials: true });
+  const socket = io('https://chat-app-server-dmth.onrender.com', { withCredentials: true });
 
   useEffect(() => {
     console.log(typeof (inmsg))

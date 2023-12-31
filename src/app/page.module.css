@@ -34,3 +34,8 @@
   /* scrollbar-color: #007 #bada55; */
 }
 
+@media (max-width: 600px) {
+  .input {
+    width: 70vw;
+  }
+}

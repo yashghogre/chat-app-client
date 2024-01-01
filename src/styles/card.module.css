@@ -1,0 +1,18 @@
+.mainMainDiv {
+    display: flex;
+    flex-direction: row;
+    /* height: 100vh; */
+    /* width: 100vw; */
+    /* border: solid 1px black; */
+    background-color: #ececec;
+    border-radius: 20px;
+    gap: 1vh;
+    padding: 1vh;
+    box-shadow: 5px 5px 15px #00000044,inset -5px -5px 15px #ffffff44;
+}
+
+.mainDiv {
+    /* height: 20vh; */
+    width: 20vw;
+    
+}

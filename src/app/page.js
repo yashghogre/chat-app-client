@@ -17,7 +17,7 @@ export default function Home() {
       <div className={styles.cardsDiv}>
         {data.map((value, index) => {
           return (
-            <div className={styles.cardDiv}>
+            <div className={styles.cardDiv} key={index}>
               <Link href={'/chat'} className={styles.link}>
                 <Card name={value.name} description={value.description} />
               </Link>

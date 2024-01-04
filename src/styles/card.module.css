@@ -8,11 +8,18 @@
     border-radius: 20px;
     gap: 1vh;
     padding: 1vh;
-    box-shadow: 5px 5px 15px #00000044,inset -5px -5px 15px #ffffff44;
+    box-shadow: 5px 5px 15px #00000044,inset -5px -5px 15px #ffffff84;
 }
 
 .mainDiv {
     /* height: 20vh; */
     width: 20vw;
     
+}
+
+@media (max-width: 600px) {
+    .mainDiv {
+        /* display: block; */
+        width: 60vw;
+    }
 }

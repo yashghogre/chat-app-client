@@ -15,3 +15,11 @@
   gap: 5vh;
   width: 100vw;
 }
+
+@media (max-width: 600px) {
+  .cardsDiv {
+    width: 90vw;
+    justify-content: center;
+    /* align-items: center; */
+  }
+}

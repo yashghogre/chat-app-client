@@ -11,16 +11,21 @@ export default function Home() {
 
   const [msg, setMsg] = useState('')
   const [inMsg, setInMsg] = useState([])
-  const socket = io('https://chat-app-server-dmth.onrender.com', { withCredentials: true });
-//   const socket = io('http://localhost:9000', { withCredentials: true });
+  const [position, setPosition] = useState('left')
+  // const socket = io('https://chat-app-server-dmth.onrender.com', { withCredentials: true });
+  const socket = io('http://localhost:9000', { withCredentials: true });
 
   useEffect(() => {
-    console.log(typeof (inmsg))
+    // console.log(typeof (inmsg))
     socket.on('msg', (msg) => {
       console.log('Message from server:', msg);
-      setInMsg((prev) => [...prev, msg])
+      setInMsg((prev) => [...prev, msg.msg])
+      if(msg.id === socket.id){
+        setPosition('right')
+      }
+      console.log(position)
+      console.log(socket.id)
     });
-
     console.log(inMsg)
 
     return () => {
@@ -31,23 +36,23 @@ export default function Home() {
   const send = (e) => {
     e.preventDefault();
     console.log(msg)
-    socket.emit('msg', msg)
+    socket.emit('msg', {msg: msg, id: socket.id})
     // setMsg('')
   }
 
   return (
     <main className={styles.main}>
-      <div className={styles.inputDiv}>
-        <input type='textarea' value={msg} onChange={(e) => setMsg(e.target.value)} className={styles.input} placeholder='Type your Message' />
-        <button onClick={send} className={styles.btn}><AiOutlineSend size={25}/></button>
-      </div>
       <div className={styles.msg}>
         {
           inMsg.map((value, key) => {
-            return (<p key={key} style={{ color: 'black', display: 'flex', gap: '1vw', alignItems: 'center' }}><FaRegUserCircle size={25} />{value}</p>)
+            return (<p key={key} style={{ color: 'black', display: 'flex', gap: '1vw', alignItems: 'center', textAlign: {position} }}><FaRegUserCircle size={25} />{value}</p>)
           })
         }
         {/* <p>{typeof(inmsg)}</p> */}
+        <div className={styles.inputDiv}>
+          <input type='textarea' value={msg} onChange={(e) => setMsg(e.target.value)} className={styles.input} placeholder='Type your Message' />
+          <button onClick={send} className={styles.btn}><AiOutlineSend size={25} /></button>
+        </div>
       </div>
     </main>
   )

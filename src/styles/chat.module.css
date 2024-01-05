@@ -9,11 +9,18 @@
   
   .inputDiv {
     display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    padding: 3vh 0;
+    width: 91%;
     gap: 0.5vw;
+    background-color: white;
   }
   
   .input {
-    width: 20vw;
+    width: 50%;
+    /* height: 100%; */
   }
   
   .btn {

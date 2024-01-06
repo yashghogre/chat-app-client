@@ -57,7 +57,7 @@ export default function Home() {
         {
           inMsg.map((value, key) => {
             return (
-              <div className={styles.msgDiv} style={{ textAlign: `${value.pos}`, display: 'flex', flexDirection: `${value.fD}`, alignItems: 'center', gap: '10px' }}>
+              <div key={key} className={styles.msgDiv} style={{ textAlign: `${value.pos}`, display: 'flex', flexDirection: `${value.fD}`, alignItems: 'center', gap: '10px' }}>
                 <FaRegUserCircle size={25} />
                 <p key={key} style={{ color: 'black', display: 'flex', gap: '1vw', alignItems: 'center', display: 'inline' }}>{value.msg}</p>
                 <div ref={lastMsg} />

@@ -1,4 +1,7 @@
-
+.mMDiv {
+    position: fixed;
+    width: 100%;
+}
 
 .mDiv {
     display: flex;

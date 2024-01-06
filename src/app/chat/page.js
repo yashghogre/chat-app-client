@@ -6,7 +6,7 @@ import { io } from "socket.io-client";
 import { useEffect, useRef, useState } from 'react';
 import { AiOutlineSend } from "react-icons/ai";
 import { FaRegUserCircle } from "react-icons/fa";
-let socket;
+const socket = io('https://chat-app-server-dmth.onrender.com', { withCredentials: true });
 
 export default function Home() {
 
@@ -16,7 +16,6 @@ export default function Home() {
   const lastMsg = useRef(null)
 
   useEffect(() => {
-    const socket = io('https://chat-app-server-dmth.onrender.com', { withCredentials: true });
     // socket = io('http://localhost:9000', { withCredentials: true });
     // socket.on('connect', () => {
     //  console.log('User Connected')

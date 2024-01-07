@@ -1,6 +1,7 @@
 .main {
-  margin-top: 5vh;
+  /* margin-top: 5vh; */
   margin-left: 3vw;
+  overflow-x: hidden;
 }
 
 .link {
@@ -14,6 +15,7 @@
   flex-wrap: wrap;
   gap: 5vh;
   width: 100vw;
+  padding-top: 15vh;
 }
 
 @media (max-width: 600px) {

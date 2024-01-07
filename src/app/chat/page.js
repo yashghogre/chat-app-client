@@ -6,6 +6,7 @@ import { io } from "socket.io-client";
 import { useEffect, useRef, useState } from 'react';
 import { AiOutlineSend } from "react-icons/ai";
 import { FaRegUserCircle } from "react-icons/fa";
+import toast, { Toaster } from 'react-hot-toast';
 const socket = io('https://chat-app-server-dmth.onrender.com', { withCredentials: true });
 // const socket = io('http://localhost:9000', { withCredentials: true });
 
@@ -17,9 +18,10 @@ export default function Home() {
   const lastMsg = useRef(null)
 
   useEffect(() => {
-    // socket.on('connect', () => {
-    //  console.log('User Connected')
-    // })
+    socket.on('connect', () => {
+     console.log('User Connected')
+    //  toast.success('A user joined!')
+    })
     return () => {
       socket.disconnect();
     };
@@ -52,6 +54,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+      <Toaster />
       <div className={styles.msg}>
         {
           inMsg.map((value, key) => {
@@ -69,7 +72,7 @@ export default function Home() {
           <input type='textarea' value={msg} onChange={(e) => setMsg(e.target.value)} className={styles.input} placeholder='Type your Message' />
           {msg.length === 0 ?
             <button className={styles.btn}><AiOutlineSend color='lightGray' size={25} /></button> :
-            <button  onClick={send} className={styles.btn}><AiOutlineSend size={25} /></button>
+            <button onClick={send} className={styles.btn}><AiOutlineSend size={25} /></button>
           }
         </div>
       </div>

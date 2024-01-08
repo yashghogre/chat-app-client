@@ -7,43 +7,55 @@ import { useEffect, useRef, useState } from 'react';
 import { AiOutlineSend } from "react-icons/ai";
 import { FaRegUserCircle } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
-const socket = io('https://chat-app-server-dmth.onrender.com', { withCredentials: true });
-// const socket = io('http://localhost:9000', { withCredentials: true });
+// const socket = io('https://chat-app-server-dmth.onrender.com', { withCredentials: true });
+const socket = io('http://localhost:9000', { withCredentials: true });
 
 export default function Home() {
 
   const [msg, setMsg] = useState('')
   const [inMsg, setInMsg] = useState([])
-  const [position, setPosition] = useState('')
+  // const [position, setPosition] = useState('')
   const lastMsg = useRef(null)
 
   useEffect(() => {
-    socket.on('connect', () => {
-     console.log('User Connected')
-     toast.success('A user joined!')
-    })
+    const handleConnect = () => {
+      console.log('User Connected');
+      toast.success('A user joined!');
+    };
+
+    socket.on('connect', handleConnect);
+
     return () => {
-      socket.disconnect();
+      socket.off('connect', handleConnect);
     };
   }, []);
 
   useEffect(() => {
-    socket.on('msg', (msg) => {
+    const handleMsg = (msg) => {
       // console.log('Message from server:', msg);
-      setInMsg((prev) => [...prev, { msg: msg.msg, pos: socket.id === msg.id ? 'right' : 'left', fD: socket.id === msg.id ? 'row-reverse' : 'row' }])
-      if (msg.id === socket.id) {
-        setPosition('right')
-      }
-      else { setPosition('left') }
+      setInMsg((prev) => [...prev, {
+        msg: msg.msg,
+        pos: socket.id === msg.id ? 'right' : 'left',
+        fD: socket.id === msg.id ? 'row-reverse' : 'row'
+      }])
+      // if (msg.id === socket.id) {
+      //   setPosition('right')
+      // }
+      // else { setPosition('left') }
       // console.log(socket.id)
-    });
+      lastMsg.current?.scrollIntoView();
+    }
+    socket.on('msg', handleMsg);
     // console.log(position)
     // console.log(inMsg)
+    return () => {
+      socket.off('msg', handleMsg);
+    }
   }, [])
 
-  useEffect(() => {
-    lastMsg.current?.scrollIntoView();
-  }, [inMsg])
+  // useEffect(() => {
+  // lastMsg.current?.scrollIntoView();  
+  // }, [inMsg])
 
   const send = (e) => {
     // e.preventDefault();

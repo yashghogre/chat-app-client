@@ -19,7 +19,8 @@
   }
   
   .input {
-    width: 50%;
+    width: 55%;
+    padding: 1vh 5vw;
     /* height: 100%; */
   }
   
@@ -36,6 +37,16 @@
 
   .msgDiv {
     display: block;
+    border-radius: 10px;
+    /* margin-bottom: 1vh; */
+  }
+  
+  /* .sMDiv {
+    margin-bottom: -5vh;
+  } */
+  
+  .sSMDiv {
+    margin-top: -2.5vh;
   }
   
   .msg {
@@ -43,6 +54,10 @@
     overflow-y: scroll;
     height: 75%;
     /* scrollbar-color: #007 #bada55; */
+  }
+
+  .nameDiv {
+    width: 100%;
   }
   
   @media (max-width: 600px) {

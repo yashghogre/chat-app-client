@@ -26,7 +26,7 @@ export default function Home() {
   useEffect(() => {
     const handleConnect = () => {
       console.log('User Connected');
-      toast.success('A user joined!');
+      toast.success('You have joined the room!');
     };
 
     socket.on('connect', handleConnect);

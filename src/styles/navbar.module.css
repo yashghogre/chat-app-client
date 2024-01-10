@@ -1,6 +1,7 @@
 .mMDiv {
     position: fixed;
     width: 100%;
+    background-color: rgba(237, 244, 251, 0.534);
 }
 
 .mDiv {

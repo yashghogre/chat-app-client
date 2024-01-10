@@ -5,7 +5,7 @@ const Card = (props) => {
     return (
         <div className={styles.mainMainDiv}>
             <div className={styles.mainDiv}>
-                <h1 className={styles.title}>{props.name}</h1>
+                <h2 className={styles.title}>{props.name}</h2>
                 <p className={styles.desc}>{props.description}</p>
             </div>
         </div>

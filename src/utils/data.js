@@ -1,8 +1,8 @@
 const data = [
     {
         id: 1,
-        name: 'Chat Room #1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis blandit turpis cursus in.'
+        name: 'General Chat',
+        description: 'A place to hangout with friends and chat with everyone'
     },
     {
         id: 2,

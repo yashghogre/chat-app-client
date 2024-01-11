@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <div className={styles.mMDiv}>
             <div className={styles.mDiv}>
-                <Link href={'/'}>
+                <Link href={'/'} style={{textDecoration: 'none'}}>
                     <h3 className={styles.title}>TalkBud</h3>
                 </Link>
                 <div className={styles.iconDiv}>

@@ -1,2 +1,2 @@
 ## UNDER DEVELOPMENT 
-Check Progress here: https://chat-app-zeta-rust.vercel.app/
+Check Progress here: https://chat-app-gold-delta.vercel.app/

@@ -7,8 +7,8 @@ import { useEffect, useRef, useState } from 'react';
 import { AiOutlineSend } from "react-icons/ai";
 import { FaRegUserCircle } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
-const socket = io('https://chat-app-server-dmth.onrender.com', { withCredentials: true });
-// const socket = io('http://localhost:9000', { withCredentials: true });
+const socket = io('https://chat-app-server-dmth.onrender.com/chat6', { withCredentials: true });
+// const socket = io('http://localhost:9000/chat6', { withCredentials: true });
 
 export default function Home() {
 

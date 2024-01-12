@@ -12,6 +12,18 @@ import Link from 'next/link';
 
 export default function Home() {
 
+  const [hasPrompted, setHasPrompted] = useState(false)
+
+  const prompt = () => {
+    if (!hasPrompted) {
+      const name = window.prompt("Enter a name to chat: ");
+      localStorage.setItem('name', name)
+      setHasPrompted(true)
+    }
+  }
+
+  prompt();
+
   return (
     <main className={styles.main}>
       <div className={styles.cardsDiv}>

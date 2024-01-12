@@ -18,15 +18,11 @@ export default function Home() {
   // const [position, setPosition] = useState('')
   const lastMsg = useRef(null)
 
-  function test() {
-    setName(window.prompt('Enter a name to chat: '))
-    localStorage.setItem('name', name)
-  }
-
   useEffect(() => {
     const handleConnect = () => {
       console.log('User Connected');
       toast.success('You have joined the room!');
+      setName(localStorage.getItem('name'))
     };
 
     socket.on('connect', handleConnect);
